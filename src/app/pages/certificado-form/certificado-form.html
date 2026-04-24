@@ -1,0 +1,77 @@
+<form #form="ngForm" novalidate class="d-flex flex-column align-items-center">
+  <div class="content-titles">
+    <h1 class="fw-bold custom-title">Geração de Certificado</h1>
+    <p class="mb-4 custom-subtitle">Preencha os dados para gerar um novo certificado</p>
+  </div>
+  <div class="custom-card w-100">
+    <h2 class="card-title">Novo certificado</h2>
+    <div class="mb-3 custom-input-group">
+      <label
+        [ngClass]="{ 'text-danger-label': campoInvalido(nomeRef) }"
+        for="nome"
+        class="form-label"
+        >Nome</label
+      >
+      <input
+        [(ngModel)]="certificado.nome"
+        #nomeRef="ngModel"
+        maxlength="150"
+        required
+        id="nome"
+        name="nome"
+        type="text"
+        class="form-control custom-input"
+        placeholder="Nome do aluno"
+      />
+      @if (campoInvalido(nomeRef)) {
+        <div class="error-message d-flex align-items-center">
+          <i class="ph ph-warning-circle"></i>
+          <p class="m-0">O nome do aluno é obrigatório</p>
+        </div>
+      }
+    </div>
+    <div class="mb-3 d-flex align-items-end atividade-row">
+      <div class="flex-grow-1 me-2 custom-input-group">
+        <label for="atividade" class="form-label">Atividade</label>
+        <input
+          [(ngModel)]="atividade"
+          #atividadeRef="ngModel"
+          maxlength="50"
+          required
+          id="atividade"
+          name="atividade"
+          type="text"
+          class="form-control custom-input"
+          placeholder="Atividade exercida"
+        />
+      </div>
+      <app-secundary-button
+        (click)="adicionarAtividadeALista()"
+        [disable]="!atividade || atividade.length == 0"
+        textoBotao="Adicionar"
+        phClass="ph ph-plus"
+      ></app-secundary-button>
+    </div>
+    <div class="atividade-group">
+      <label class="form-label">Lista de Atividade</label>
+      <div class="item-list w-100">
+        @for (atividade of certificado.atividades; track $index) {
+          <div class="item">
+            <span class="item-text">{{ atividade }}</span>
+            <div (click)="excluirAtividadeDaLista($index)" class="remove-btn">
+              <i class="ph ph-x"></i>
+            </div>
+          </div>
+          @if ($index + 1 != certificado.atividades.length) {
+            <hr />
+          }
+        }
+      </div>
+    </div>
+    <app-primary-button
+      (click)="submitForm()"
+      [disable]="!formValido()"
+      textoBotao="Gerar certificado"
+    ></app-primary-button>
+  </div>
+</form>

@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: 'Noto Serif', serif !important;
+  font-opticasal-sizing: auto;
+}
+
+.noto-serif {
+  font-family: 'Noto Serif', serif;
+}
+
+.playwrite-no {
+  font-family: 'Playwrite NO', cursive;
+}
+
+.content-titles {
+  height: 60px;
+  gap: 4px;
+  margin-bottom: 32px;
+}
+
+.custom-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.custom-subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #cccccc;
+  margin-bottom: 4px;
+}

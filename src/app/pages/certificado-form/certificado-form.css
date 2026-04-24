@@ -1,0 +1,105 @@
+.custom-card {
+  max-width: 672px;
+  gap: 32px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  padding: 32px;
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: #1a2856;
+  margin-bottom: 20px;
+}
+
+.atividade-group {
+  margin-bottom: 32px;
+}
+
+label {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #1a2856;
+}
+
+.item-list {
+  width: 100%;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 16px;
+  gap: 12px;
+}
+
+.item-list hr {
+  margin: 12px 0px;
+  all: unset;
+  display: block;
+  height: 1px;
+  background-color: #cccccc;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-btn i {
+  padding: 5.75px;
+  color: #e95f5f;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.remove-btn:hover {
+  background-color: #cccccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-input {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  height: 40px;
+}
+
+.custom-input:focus {
+  border: 1px solid #3b5ac2;
+  box-shadow: none;
+}
+
+.custom-input-group:has(input:focus) label {
+  color: #3b5ac2;
+}
+
+.custom-input-group {
+  margin-bottom: 20px !important;
+}
+
+.atividade-row .custom-input-group {
+  margin-bottom: 0 !important;
+}
+
+.error-message {
+  color: #d71d1d;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.error-message p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.text-danger-label {
+  color: #d71d1d;
+}

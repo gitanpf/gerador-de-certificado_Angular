@@ -1,0 +1,126 @@
+.menu-certificado {
+  max-width: 800px;
+}
+
+.btn-voltar {
+  gap: 6px;
+  cursor: pointer;
+}
+
+.btn-voltar p {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.btn-voltar i {
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.certificado {
+  margin-top: 32px;
+  background-image: url('../../../../public/certificate/certificate_bg.png');
+  width: 800px;
+  height: 550px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.certificado,
+.certificado * {
+  border-radius: 0 !important;
+}
+
+.conteudo-certificado {
+  width: 720px;
+  height: 470px;
+  position: relative;
+}
+
+.conteudo-certificado p {
+}
+
+.icone-medalha {
+  position: absolute;
+  top: 40px;
+  left: 50px;
+  z-index: 1;
+}
+
+.info-certificado {
+  margin: 64px 40px 48px 40px;
+  gap: 20px;
+}
+
+.titulo-subtitulo-certificado h1 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 160%;
+  letter-spacing: 2.4px;
+  color: #1a2856;
+}
+
+.titulo-subtitulo-certificado p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 160%;
+  letter-spacing: 0;
+  text-align: center;
+  margin: 0;
+  color: #121621;
+}
+
+.nome-aluno {
+  font-family: 'Playwrite NO', cursive !important;
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: center;
+  color: hsl(226, 53%, 50%);
+  padding: 20px;
+}
+
+.lista-atividade {
+  max-width: 413.7px;
+  color: #121621;
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0;
+}
+
+.lista-atividades-titulo {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 160%;
+  letter-spacing: 0;
+  text-align: center;
+  margin-bottom: 8px !important;
+}
+
+.data-emitido {
+  font-weight: 700;
+  font-size: 11.2px;
+  line-height: 160%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #121621;
+}
+
+.imagem-assinatura {
+  position: absolute;
+  right: 80px;
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+}

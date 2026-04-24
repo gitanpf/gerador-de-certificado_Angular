@@ -1,0 +1,6 @@
+<button [ngStyle]="disable ? { opacity: '50%' } : {}" class="custom-button">
+  @if (phClass) {
+    <i class="{{ phClass }}"></i>
+  }
+  {{ textoBotao }}
+</button>

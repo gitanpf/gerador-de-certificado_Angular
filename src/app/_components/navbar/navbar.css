@@ -1,0 +1,34 @@
+.navbar {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #cccccc;
+  padding-right: 28px;
+  padding-left: 12px;
+}
+
+.logo {
+  font-size: 50px;
+  color: #cccccc;
+}
+
+i:hover {
+  color: #3b5ac2;
+}
+
+.nav-link {
+  padding: 6px !important;
+}
+
+.nav-link-active {
+  color: #3b5ac2;
+  font-weight: 600;
+}
+
+.nav-item {
+  cursor: pointer;
+  margin-left: 18px !important;
+}
+
+.nav-item i {
+  font-size: 20px;
+}

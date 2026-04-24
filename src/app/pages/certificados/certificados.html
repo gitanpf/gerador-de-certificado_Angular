@@ -1,0 +1,30 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="content-titles">
+    <h1 class="fw-bold custom-title">Certificados gerados</h1>
+    <p class="mb-4 custom-subtitle">Visualize todos os certificados gerados.</p>
+  </div>
+  @if (certificados.length == 0) {
+      <div class="custom-card w-100">
+        <i class="ph ph-certificate"></i>
+        <div class="custom-warning-titles">
+          <h3 class="card-title">Nenhum certificado gerado</h3>
+          <p class="card-subtitle">Gere certificados para consultar histórico.</p>
+        </div>
+        <app-secundary-button
+          routerLink="/certificados/novo"
+          textoBotao="Gerar certificado"
+        ></app-secundary-button>
+      </div>
+  }
+  @if (certificados.length > 0) {
+    <div class="list-certificates w-100">
+      @for (certificado of certificados; track $index) {
+        <app-item-certificado
+          [nomeAluno]="certificado.nome"
+          [dataEmissao]="certificado.dataEmissao"
+          [id]="certificado.id"
+        ></app-item-certificado>
+      }
+    </div>
+  }
+</div>
