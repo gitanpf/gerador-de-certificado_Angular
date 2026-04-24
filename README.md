@@ -1,59 +1,140 @@
-# GeradorCertificado
+# Gerador de Certificados
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+Aplicacao Angular para criar, listar, visualizar e baixar certificados personalizados.
 
-## Development server
+## Visao geral
 
-To start a local development server, run:
+O sistema permite:
 
-```bash
-ng serve
+- cadastrar certificados com nome do aluno e lista de atividades;
+- armazenar os certificados localmente no navegador (`localStorage`);
+- listar todos os certificados gerados;
+- abrir os detalhes de um certificado;
+- baixar o certificado como imagem (`.png`).
+
+## Funcionalidades principais
+
+- **Cadastro de certificado**
+  - formulario com validacao de nome e atividades;
+  - adicao e remocao de atividades;
+  - geracao de `id` unico com `uuid`;
+  - data de emissao preenchida automaticamente.
+- **Lista de certificados**
+  - exibicao dos certificados salvos;
+  - estado vazio com CTA para criar novo certificado.
+- **Visualizacao de certificado**
+  - renderizacao de layout visual de certificado;
+  - botao para download do certificado como imagem.
+- **Persistencia local**
+  - leitura automatica de dados do `localStorage` ao iniciar;
+  - salvamento automatico ao adicionar novo certificado.
+
+## Rotas da aplicacao
+
+Rotas principais:
+
+- `/` -> lista de certificados
+- `/certificados` -> lista de certificados
+- `/certificados/novo` -> formulario de geracao
+- `/certificados/:id` -> detalhe do certificado
+
+Compatibilidade (redirecionamento legado):
+
+- `/certificado/novo` -> `/certificados/novo`
+- `/certificado/:id` -> `/certificados/:id`
+
+## Estrutura do projeto (resumo)
+
+```text
+src/app
+|- Interfaces/
+|  |- certificado.ts
+|- _services/
+|  |- certificado.ts
+|- _components/
+|  |- navbar/
+|  |- primary-button/
+|  |- secundary-button/
+|  |- item-certificado/
+|  |- ui-base/
+|- pages/
+|  |- certificados/
+|  |- certificado-form/
+|  |- certificado/
+|- app.routes.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologias e bibliotecas
 
-## Code scaffolding
+- Angular 21
+- TypeScript 5.9
+- Bootstrap 5
+- `uuid` (ids unicos)
+- `html-to-image` (exportacao para PNG)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Como executar localmente
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### 1) Instalar dependencias
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### 2) Rodar em desenvolvimento
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+Depois acesse a URL exibida no terminal (normalmente `http://localhost:4200/`).
 
-For end-to-end (e2e) testing, run:
+## Build de producao
 
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Arquivos gerados em:
 
-## Additional Resources
+`dist/gerador-certificado`
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Scripts disponiveis
+
+- `npm start` -> inicia `ng serve`
+- `npm run build` -> gera build de producao
+- `npm run watch` -> build em modo watch
+- `npm test` -> executa testes
+
+## Modelo de dados
+
+Interface principal:
+
+```ts
+export interface Certificado {
+  id: string;
+  nome: string;
+  atividades: string[];
+  dataEmissao: string;
+}
+```
+
+## Fluxo funcional
+
+1. Usuario abre a tela de geracao.
+2. Preenche nome e atividades.
+3. Sistema gera `id` e `dataEmissao`.
+4. Certificado e salvo no `localStorage`.
+5. Usuario e redirecionado para os detalhes.
+6. Opcionalmente, baixa o certificado em PNG.
+
+## Observacoes
+
+- Os dados sao locais ao navegador/dispositivo (nao ha backend).
+- Existe um warning de budget no build quando o bundle inicial ultrapassa 500 kB; isso nao impede o funcionamento do app.
+
+## Melhorias futuras sugeridas
+
+- integrar backend/API para persistencia remota;
+- adicionar edicao e exclusao de certificados;
+- criar testes unitarios e e2e para os fluxos principais;
+- internacionalizacao e ajustes de acessibilidade.
