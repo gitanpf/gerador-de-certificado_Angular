@@ -50,3 +50,5 @@ src/app
 ├── _components/       # UI Reutilizável (Buttons, Navbar, UI-Base)
 ├── pages/             # Páginas principais da aplicação
 └── app.routes.ts      # Definição centralizada de navegação
+```
+* Link: https://gitanpf.github.io/gerador-de-certificado_Angular/
