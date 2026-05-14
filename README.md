@@ -45,8 +45,8 @@ A aplicação utiliza um sistema de rotas organizado e compatível com versões 
 
 ```text
 src/app
-├── Interfaces/        # Contratos de dados (Certificado.ts)[cite: 2]
-├── _services/         # Lógica de negócio e acesso ao localStorage[cite: 2]
-├── _components/       # UI Reutilizável (Buttons, Navbar, UI-Base)[cite: 2]
-├── pages/             # Páginas principais da aplicação[cite: 2]
-└── app.routes.ts      # Definição centralizada de navegação[cite: 2]
+├── Interfaces/        # Contratos de dados (Certificado.ts)
+├── _services/         # Lógica de negócio e acesso ao localStorage
+├── _components/       # UI Reutilizável (Buttons, Navbar, UI-Base)
+├── pages/             # Páginas principais da aplicação
+└── app.routes.ts      # Definição centralizada de navegação
