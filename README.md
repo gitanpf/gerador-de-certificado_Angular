@@ -1,140 +1,52 @@
-# Gerador de Certificados
+# 🎓 Gerador de Certificados Profissional
 
-Aplicacao Angular para criar, listar, visualizar e baixar certificados personalizados.
+Uma aplicação robusta desenvolvida com **Angular 21** e **Bootstrap 5** para criação, gestão e exportação de certificados personalizados. O sistema oferece uma experiência fluida de Single Page Application (SPA) com persistência de dados local.
 
-## Visao geral
+## 🌟 Diferenciais desta Versão
 
-O sistema permite:
+*   **Arquitetura Angular Moderna:** Uso de componentes funcionais, tipagem rigorosa com TypeScript 5.9 e roteamento avançado.
+*   **Interface com Bootstrap 5:** Layout responsivo, componentes de UI elegantes e sistema de grid para uma visualização perfeita em qualquer dispositivo.
+*   **Exportação de Alta Fidelidade:** Integração com a biblioteca `html-to-image` para converter o layout HTML em imagens `.png` prontas para impressão.
 
-- cadastrar certificados com nome do aluno e lista de atividades;
-- armazenar os certificados localmente no navegador (`localStorage`);
-- listar todos os certificados gerados;
-- abrir os detalhes de um certificado;
-- baixar o certificado como imagem (`.png`).
+## 📋 Funcionalidades
 
-## Funcionalidades principais
+*   **Emissão Inteligente:**
+    *   Formulário dinâmico com validação em tempo real.
+    *   Adição/Remoção dinâmica de atividades.
+    *   Geração automática de UUID e data de emissão.
+*   **Gestão e Visualização:**
+    *   Dashboard com listagem completa dos certificados gerados.
+    *   Visualização detalhada com layout de certificado profissional.
+    *   Download direto em formato de imagem.
+*   **Persistência Offline:**
+    *   Armazenamento automático no `localStorage` do navegador, garantindo que seus dados não sejam perdidos ao fechar a aba.
 
-- **Cadastro de certificado**
-  - formulario com validacao de nome e atividades;
-  - adicao e remocao de atividades;
-  - geracao de `id` unico com `uuid`;
-  - data de emissao preenchida automaticamente.
-- **Lista de certificados**
-  - exibicao dos certificados salvos;
-  - estado vazio com CTA para criar novo certificado.
-- **Visualizacao de certificado**
-  - renderizacao de layout visual de certificado;
-  - botao para download do certificado como imagem.
-- **Persistencia local**
-  - leitura automatica de dados do `localStorage` ao iniciar;
-  - salvamento automatico ao adicionar novo certificado.
+## 🛠️ Tecnologias e Bibliotecas
 
-## Rotas da aplicacao
+*   **Core:** Angular 21 & TypeScript 5.9.
+*   **Estilização:** Bootstrap 5 (CSS/Componentes).
+*   **Utilitários:** 
+    *   `uuid`: Para identificação única de registros.
+    *   `html-to-image`: Para processamento de imagem no lado do cliente.
 
-Rotas principais:
+## 🛣️ Estrutura de Rotas
 
-- `/` -> lista de certificados
-- `/certificados` -> lista de certificados
-- `/certificados/novo` -> formulario de geracao
-- `/certificados/:id` -> detalhe do certificado
+A aplicação utiliza um sistema de rotas organizado e compatível com versões anteriores:
 
-Compatibilidade (redirecionamento legado):
+| Rota | Descrição |
+| :--- | :--- |
+| `/certificados` | Dashboard principal e listagem |
+| `/certificados/novo` | Formulário de criação de novo certificado |
+| `/certificados/:id` | Visualização e download de um certificado específico |
 
-- `/certificado/novo` -> `/certificados/novo`
-- `/certificado/:id` -> `/certificados/:id`
+> **Nota:** Rotas legadas como `/certificado/novo` são automaticamente redirecionadas para manter a compatibilidade.
 
-## Estrutura do projeto (resumo)
+## 📂 Organização do Projeto
 
 ```text
 src/app
-|- Interfaces/
-|  |- certificado.ts
-|- _services/
-|  |- certificado.ts
-|- _components/
-|  |- navbar/
-|  |- primary-button/
-|  |- secundary-button/
-|  |- item-certificado/
-|  |- ui-base/
-|- pages/
-|  |- certificados/
-|  |- certificado-form/
-|  |- certificado/
-|- app.routes.ts
-```
-
-## Tecnologias e bibliotecas
-
-- Angular 21
-- TypeScript 5.9
-- Bootstrap 5
-- `uuid` (ids unicos)
-- `html-to-image` (exportacao para PNG)
-
-## Como executar localmente
-
-### 1) Instalar dependencias
-
-```bash
-npm install
-```
-
-### 2) Rodar em desenvolvimento
-
-```bash
-npm start
-```
-
-Depois acesse a URL exibida no terminal (normalmente `http://localhost:4200/`).
-
-## Build de producao
-
-```bash
-npm run build
-```
-
-Arquivos gerados em:
-
-`dist/gerador-certificado`
-
-## Scripts disponiveis
-
-- `npm start` -> inicia `ng serve`
-- `npm run build` -> gera build de producao
-- `npm run watch` -> build em modo watch
-- `npm test` -> executa testes
-
-## Modelo de dados
-
-Interface principal:
-
-```ts
-export interface Certificado {
-  id: string;
-  nome: string;
-  atividades: string[];
-  dataEmissao: string;
-}
-```
-
-## Fluxo funcional
-
-1. Usuario abre a tela de geracao.
-2. Preenche nome e atividades.
-3. Sistema gera `id` e `dataEmissao`.
-4. Certificado e salvo no `localStorage`.
-5. Usuario e redirecionado para os detalhes.
-6. Opcionalmente, baixa o certificado em PNG.
-
-## Observacoes
-
-- Os dados sao locais ao navegador/dispositivo (nao ha backend).
-- Existe um warning de budget no build quando o bundle inicial ultrapassa 500 kB; isso nao impede o funcionamento do app.
-
-## Melhorias futuras sugeridas
-
-- integrar backend/API para persistencia remota;
-- adicionar edicao e exclusao de certificados;
-- criar testes unitarios e e2e para os fluxos principais;
-- internacionalizacao e ajustes de acessibilidade.
+├── Interfaces/        # Contratos de dados (Certificado.ts)[cite: 2]
+├── _services/         # Lógica de negócio e acesso ao localStorage[cite: 2]
+├── _components/       # UI Reutilizável (Buttons, Navbar, UI-Base)[cite: 2]
+├── pages/             # Páginas principais da aplicação[cite: 2]
+└── app.routes.ts      # Definição centralizada de navegação[cite: 2]
